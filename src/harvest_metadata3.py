@@ -155,8 +155,11 @@ class MetadataHarvester(object):
                 getRecordsURLNew += '&startposition='
                 getRecordsURLNew += str(nextRec)
                 dom = self.harvestContent(getRecordsURLNew)
+                #print("#### DEBUG ####")
                 cswHeader = dom.find('csw:SearchResults', namespaces={'csw': 'http://www.opengis.net/cat/csw/2.0.2'})
-                nextRec =  int(cswHeader.get('nextRecord'))
+                #print(getRecordsURLNew, '\n', cswHeader)
+                #print("#### DEBUG ####")
+                nextRec = int(cswHeader.get('nextRecord'))
                 self.numRecsReturned = int(cswHeader.get('numberOfRecordsReturned'))
                 self.ogccsw_writeCSWISOtoFile(dom)
                 if nextRec == 0:
