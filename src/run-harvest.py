@@ -27,7 +27,7 @@ import sys
 import os
 import getopt
 import yaml
-from harvest_metadata3 import MetadataHarvester
+from harvest_metadata import MetadataHarvester
 
 # import the necessary packages
 import argparse
